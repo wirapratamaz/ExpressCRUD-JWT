@@ -1,5 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const jwt = require("express");
+const bcrypt = require("bcryptjs");
+const userRoutes = require('./src/routes/userRoutes')
+const authRoutes = require('./src/routes/auth');
 
 const app = express();
 // Setup server port
@@ -16,6 +20,10 @@ app.get('/', (req, res) => {
 const employeeRoutes = require('./src/routes/employeeRoutes.js')
 // using as middleware api
 app.use('/api/v1/employees', employeeRoutes)
+// Require user routes
+app.use('/api/v1/user', userRoutes);
+app.use('/api/v1/authenticate', authRoutes);
+
 // listen
 app.listen(port, () => {
     console.log(`Server is listening on http://localhost:${port}`);

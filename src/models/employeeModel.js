@@ -1,7 +1,7 @@
 'use strict';
-var dbConn = require('../../config/db.config');
+let dbConn = require('../../config/db.config');
 //Employee object create
-var Employee = function(employee){
+let Employee = function(employee){
   this.nama            = employee.nama;
   this.email           = employee.email;
   this.telp            = employee.telp;
